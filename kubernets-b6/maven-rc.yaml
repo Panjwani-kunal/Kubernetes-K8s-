@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: maven-cont
-        image: 8983795200/maven-web-application:1
+        image: 8983795200/java-web-app:1
         ports:
         - containerPort: 8080
