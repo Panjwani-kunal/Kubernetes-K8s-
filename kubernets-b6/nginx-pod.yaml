@@ -1,7 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: nginx-pod
+  name: nginx1-pod
+  namespace: pankaj-dev
 spec:
   containers:
   - name: nginx-container
