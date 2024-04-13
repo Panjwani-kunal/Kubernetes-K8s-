@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: maven-rc
+  namespace: pankaj-test
+spec:
+  replicas: 4
+  selector:
+    app: maven
+  template:  #POD TEMPLATE
+    metadata:
+      name: maven-pod
+      namespace: pankaj-test
+      labels:
+        app: maven
+    spec:
+      containers:
+      - name: maven-cont
+        image: 8983795200/maven-web-application:1
+        ports:
+        - containerPort: 8080
