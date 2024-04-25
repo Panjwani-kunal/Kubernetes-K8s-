@@ -3,9 +3,28 @@ kind: Pod
 metadata:
   name: java-pod
   namespace: pankaj-1
+  labels:
+    app: java
 spec:
   containers:
   - name: java-container
     image: 8983795200/java-web-app:1
     ports:
     - containerPort: 8080
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: java-svc
+  namespace: pankaj-1
+spec:
+  type: ClusterIP
+  selector:
+    app: java
+  ports:
+  - name: java-port
+    port: 8080   # service port
+    targetPort: 8080  # container port
+    protocol: TCP
