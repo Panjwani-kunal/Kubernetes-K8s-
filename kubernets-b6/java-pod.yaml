@@ -14,13 +14,27 @@ spec:
 
 ---
 
+#apiVersion: v1
+#kind: Service
+#metadata:
+  #name: java-svc
+  #namespace: pankaj-1
+# type: ClusterIP
+ # selector:
+  #  app: java
+  #ports:
+  #- name: java-port
+   # port: 8080   # service port
+    #targetPort: 8080  # container port
+    #protocol: TCP
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: java-svc
+  name: java-svc-np
   namespace: pankaj-1
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: java
   ports:
@@ -28,3 +42,4 @@ spec:
     port: 8080   # service port
     targetPort: 8080  # container port
     protocol: TCP
+    nodePort: 30032
