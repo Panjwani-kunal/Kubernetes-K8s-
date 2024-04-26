@@ -5,7 +5,7 @@ metadata:
   namespace: project-a
 spec:
   hard:
-    requests.cpu: "500"
+    requests.cpu: "500m"
     requests.memory: 256Mi
     limits.cpu: "2"
     limits.memory: 5Gi
