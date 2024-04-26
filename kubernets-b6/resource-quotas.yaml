@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata: 
+  name: project-a-quota
+  namespace: project-a
+spec:
+  hard:
+    requests.cpu: "500"
+    requests.memory: 256Mi
+    limits.cpu: "2"
+    limits.memory: 5Gi
+    pods: 3
