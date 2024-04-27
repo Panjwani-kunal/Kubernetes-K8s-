@@ -4,7 +4,7 @@ metadata:
   name: springappdeployment
   namespace: project-a
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
       app: springapp

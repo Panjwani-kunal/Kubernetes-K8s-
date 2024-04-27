@@ -6,7 +6,7 @@ metadata:
 spec:
   hard:
     requests.cpu: "500m"
-    requests.memory: 256Mi
+    requests.memory: 1Gi
     limits.cpu: "2"
-    limits.memory: 5Gi
-    pods: 3
+    limits.memory: 2Gi
+    pods: 2
