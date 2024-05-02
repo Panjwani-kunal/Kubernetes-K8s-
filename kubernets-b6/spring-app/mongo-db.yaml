@@ -15,9 +15,9 @@ spec:
         app: mongo
     spec:
       volumes:
-      - name: mongo-volume
+      - name: persistent-storage
         persistentVolumeClaim:
-          claimName: mongo-pvc
+          claimName: ebs-claim
       containers:
       - name: mongodb-container
         image: mongo
@@ -29,7 +29,7 @@ spec:
         - name: MONGO_INITDB_ROOT_PASSWORD
           value: pankaj@9201
         volumeMounts:
-        - name: mongo-volume
+        - name: persistent-storage
           mountPath: /data/db
 
 ---
