@@ -16,13 +16,9 @@ spec:
       containers:
       - name: springappcontainer
         image: dockerhandson/spring-boot-mongo:1
-        env:
-        - name: MONGO_DB_HOSTNAME
-          value: mongosvc
-        - name: MONGO_DB_USERNAME
-          value: pankaj
-        - name: MONGO_DB_PASSWORD
-          value: pankaj@9201
+        envFrom:
+          configMapRef:
+            name: map-1
         ports:
         - containerPort: 8080
 

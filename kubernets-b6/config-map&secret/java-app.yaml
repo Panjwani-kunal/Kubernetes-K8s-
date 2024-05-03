@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: javawebdeployment
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: javawebapp
+  template:
+    metadata:
+      name: javawebappod
+      labels:
+        app: javawebapp
+    spec:
+      containers:
+      - name: javawebappcontainer
+        image: dockerhandson/java-web-app:3
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: tomcatusersconfig
+          mountPath: "/usr/local/tomcat/conf/tomcat-users.xml"
+          subPath: "tomcat-users.xml"
+      volumes:
+      - name: tomcatusersconfig
+        configMap:
+          name: javaconfig
+          items:
+          - key: "tomcat-users.xml"
+            path: "tomcat-users.xml"
